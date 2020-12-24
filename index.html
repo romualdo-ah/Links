@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/gif" href="transparent_logo.png" />
+    <title>❤️ Carol Terapia Integrativa</title>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --logo-size: 120px;
+        --logo-initial-size: 20px;
+        --logo-zoom-size: 123px;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Quicksand", sans-serif;
+        color: #333;
+        -webkit-font-smoothing: antialiased;
+      }
+      body {
+        height: 100vh;
+        /* background-color: #FFDEE9; */
+        background-image: linear-gradient(0deg, #ffdee9 0%, #b5fffc 100%);
+        background-size: 400%;
+
+        animation: clear-opening ease-in-out 1s;
+      }
+
+      body.loaded {
+        background-size: 400%;
+        animation: logo-animation 60s infinite alternate,
+          loading-background ease-in-out 0.6s;
+      }
+
+      main {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        width: 450px;
+        padding: 14px;
+      }
+
+      .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        box-sizing: content-box;
+        height: 100%;
+      }
+
+      a {
+        text-decoration: none;
+      }
+      .channel:active {
+        color: #9b15ea;
+      }
+
+      .channel:hover {
+        transform: scale(1.01);
+        transition: all 0.1s;
+        color: #9b15ea;
+        font-weight: 800;
+        /* text-shadow: #9b15ea 1px 5px 22px; */
+      }
+
+      a.lighting {
+        animation: 1.3s infinite lighting linear;
+        color: #9b15ea;
+        font-weight: 600;
+      }
+
+      a.channel {
+        background: #fff;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 2px 8px 0px;
+        cursor: pointer;
+        border-radius: 25px;
+
+        padding: 20px;
+        margin: 5px;
+
+        font-weight: 500;
+
+        width: 100%;
+
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+
+        transition: all 0.1s;
+      }
+
+      .channel .button_text {
+        align-self: center;
+        position: absolute;
+      }
+      .channel:not(.book) + .channel.book {
+        margin-top: 28px;
+      }
+      .channel .highlight {
+        align-self: center;
+        line-height: 0px;
+        margin-left: min(411px, 96%);
+      }
+
+      .logo {
+        display: -webkit-box;
+        display: flex;
+        -webkit-box-align: center;
+        align-items: center;
+
+        width: var(--logo-size);
+        height: var(--logo-size);
+
+        margin: auto;
+        position: relative;
+        box-sizing: border-box;
+        color: #fff;
+
+        background-color: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
+
+        background-size: contain;
+        background-position-x: center;
+        background-position-y: center;
+        background-clip: padding-box;
+        /* !importanté */
+        border: solid 2px transparent;
+        /* !importanté */
+        border-radius: 50%;
+        transition: width 0.5s, height 0.5s;
+      }
+
+      .initial {
+        width: 1px;
+        height: 1px;
+      }
+
+      .initial.logo {
+        width: var(--logo-initial-size);
+        height: var(--logo-initial-size);
+        animation: ease-in-out 3s translate-vertical-animation infinite;
+
+        background: #8d04dd;
+        transform: 0.8s ease-in-out 0s 1 zoomIn;
+      }
+
+      .logo.success {
+        animation: zoomIn 1s, moving-background 1s;
+      }
+
+      .logo.success:after {
+        background-image: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
+        opacity: 0;
+        content: "";
+        z-index: 1;
+        width: inherit;
+        height: inherit;
+
+        position: absolute;
+        top: -2px;
+        right: 0px;
+        bottom: 0px;
+        left: -1px;
+
+        border-radius: 50%;
+        animation: clean-logo-animation 3s 1s;
+      }
+
+      .logo.success:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: -1;
+        margin: -2px;
+
+        /* !importanté */
+        border-radius: inherit;
+
+        /* !importanté */
+        background-image: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
+
+        background-size: 400%;
+        animation: logo-animation 2s infinite alternate;
+      }
+
+      h3 {
+        font-size: 1em;
+        margin: 0.7em;
+        margin: 20px auto;
+        animation: logo-animation 1s;
+      }
+
+      #dev {
+        position: fixed;
+        bottom: 15px;
+        right: 60px;
+        font-size: 14px;
+      }
+
+      #dev > span {
+        font-size: 14px;
+      }
+
+      @keyframes clean-logo-animation {
+        from {
+          opacity: 1;
+        }
+        to {
+          opacity: 0;
+        }
+      }
+
+      @keyframes moving-background {
+        0% {
+          background-position: left;
+        }
+        100% {
+          background-position: right;
+        }
+      }
+
+      @keyframes loading-background {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      @keyframes zoomIn {
+        0% {
+          width: var(--logo-initial-size);
+          height: var(--logo-initial-size);
+          transform: translateY(25px);
+        }
+        100% {
+          width: var(--logo-size);
+          height: var(--logo-size);
+          transform: translateY(0px);
+        }
+      }
+
+      @keyframes logo-animation {
+        0% {
+          background-position: left;
+        }
+        100% {
+          background-position: right;
+        }
+      }
+
+      @keyframes translate-vertical-animation {
+        0% {
+          transform: translateY(100px);
+        }
+        50% {
+          transform: translateY(0px);
+        }
+        100% {
+          transform: translateY(100px);
+        }
+      }
+
+      @keyframes lighting {
+        0% {
+          box-shadow: #9b15ea 0px 0px 3px;
+        }
+        50% {
+          box-shadow: #9b15ea 0px 0px 10px;
+        }
+        100% {
+          box-shadow: #9b15ea 0px 0px 3px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <main>
+        <a href="" class="logo initial">
+          <div class="loaded"></div>
+        </a>
+      </main>
+    </div>
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js"
+    ></script>
+
+    <script>
+      if(navigator.serviceWorker){
+
+        window.addEventListener("load",()=>{
+          navigator.serviceWorker.register("/sw_cached_pages.js").then(reg=>console.log("ServiceWorker registered")
+          ).catch(err=>console.log("ServiceWorker error",err)
+          )
+        })
+      }
+      const links_url =
+        "https://docs.google.com/spreadsheets/d/1v3xZ5MOMSoTJ27pHEM9KcxfiXkRE_Mu5i4BV3tUFL8o/pub?output=csv";
+      window.onload = loaded();
+      const logo_element = document.querySelector(".logo");
+      const main = document.querySelector("main");
+
+      async function afterOnline() {
+        Papa.parse(links_url, {
+          download: true,
+          header: true,
+          complete: function (results) {
+            load_data(results.data);
+          },
+        });
+      }
+
+      function errorOnLoad(e) {
+        let account_element_text = document.createElement("h3");
+
+        account_element_text.textContent = "error on load";
+        const main = document.querySelector("main");
+
+        main.appendChild(account_element_text);
+
+        const interval = setInterval(() => {
+          let isOnline = navigator.onLine;
+
+          if (isOnline) {
+            account_element_text = document.querySelector("h3");
+            account_element_text.textContent = "";
+            loaded();
+            console.log("offline");
+
+            clearInterval(interval);
+          }
+        }, 3000);
+      }
+
+      function load_data(data) {
+        const logo = data.filter((element) => element.type === "logo")[0];
+        const account = data.filter((element) => element.type === "profile")[0];
+        const buttons = data.filter((element) => element.type === "button");
+        // const highlighted = data.filter((element) => element.highlight !== "");
+        const background = data.filter(
+          (element) => element.type === "background"
+        )[0];
+
+        const body = document.querySelector("body");
+        body.classList.add("loaded");
+
+        body.style.background =
+          `url(${background.link})` || background.text || "#9b15ea";
+
+        logo_element.setAttribute("href", account.link);
+        logo_element.setAttribute("target", "_blank");
+
+        // logo_element.style.backgroundSize = "contain";
+        // logo_element.style.backgroundPositionX = "center";
+        // logo_element.style.backgroundPositionX = "center";
+        // logo_element.style.backgroundClip = "padding-box";
+
+        const account_element = document.createElement("a");
+        account_element.setAttribute("href", account.link);
+        account_element.setAttribute("target", "_blank");
+
+        const account_element_text = document.createElement("h3");
+        account_element_text.textContent = account.text;
+
+        account_element.appendChild(account_element_text);
+
+        // main.appendChild(logo_element);
+        main.appendChild(account_element);
+
+        buttons.map((button) => {
+          const channel = document.createElement("a");
+          channel.setAttribute("href", button.link);
+          channel.setAttribute("target", "_blank");
+
+          channel.classList.add("channel");
+          button.highlight && channel.classList.add("book");
+
+          const text = `
+          <span class="button_text">${button.text}</span>${
+            button.highlight ? "<span class='highlight'>📚</span>" : ""
+          }
+          `;
+          channel.innerHTML += text;
+
+          const highlight = `<span></span>`;
+
+          main.appendChild(channel);
+        });
+
+        logo_element.setAttribute(
+          "style",
+          `background-image:url(${logo.link})`
+        );
+
+        logo_element.innerHTML += "";
+        logo_element.classList.add("success");
+
+        logo_element.classList.remove("initial");
+
+        document.querySelector(".channel").classList.add("lighting");
+        addDev();
+      }
+
+      function addDev() {
+        const main = document.querySelector("main");
+        main.innerHTML += `<a id="dev" href="https://www.instagram.com/romualdo_ah/" target="_blank">
+         feito com 
+         <span style="color: #e25555;">❤️</span>
+         por romualdo_ah
+         </a>`;
+      }
+
+      async function updateOnlineStatus(msg) {
+        // var status = document.getElementById("status");
+        var condition = navigator.onLine ? "ONLINE" : "OFFLINE";
+
+        if (navigator.onLine) {
+          await afterOnline();
+        } else if (!navigator.onLine) {
+          errorOnLoad();
+        }
+      }
+
+      function loaded() {
+        updateOnlineStatus("load");
+
+        document.body.addEventListener(
+          "offline",
+          function () {
+            updateOnlineStatus("offline");
+          },
+          false
+        );
+
+        document.body.addEventListener(
+          "online",
+          function () {
+            updateOnlineStatus("online");
+          },
+          false
+        );
+      }
+    </script>
+  </body>
+</html>
